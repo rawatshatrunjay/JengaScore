@@ -23,7 +23,36 @@ and open the template in the editor.
                 <span class="icon fa-4x fa-bars"></span>
                 <span class="title font-4x">Jenga Score Keeper</span>
             </div>
+            <div class="sec-division"></div>
+            <div class="page-body">
+                <div class="game-options" data-bind="foreach: options">
+                    <div class="button neutral" data-bind="click: action">
+                        <span class="icon fa-2x" data-bind="css: icon"></span>
+                        <span class="button-text font-2x" data-bind="text: caption"></span>
+                    </div>
+                </div>
+                <div class="sub-division"></div>
+                <div class="option-description" data-bind="template: {name: 'addPlayerTmpl'}"></div>
+                <div class="option-description" data-bind="template: {name: 'ruleTmpl'}"></div>
+            </div>
         </div>
+        <script type="text/html" id="addPlayerTmpl">
+            <div id="add-player-dialog" class="add-player-pane" style="display: none;">
+                <input type="text" placeholder="Whats the Name?" class="font-1x add-player-input"
+                       data-bind="value: newPlayerName">
+                <div class="add-player-actions">
+                    <div class="button small positive" data-bind="click: addPlayer">
+                        <span class="icon fa-1x fa-plus"></span>
+                        <span class="button-text font-1x">Sure!</span>
+                    </div>
+                    <div class="button small negative" data-bind="click: resetAddPlayerDialog">
+                        <span class="icon fa-1x fa-times"></span>
+                        <span class="button-text font-1x">Nope, Sorry!</span>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script type="text/html" src="templates/jenga/ruleTmpl.html" id="ruleTmpl"></script>
         <script src="js/libs/require/require.js" data-main="js/jenga/jenga"></script>
     </body>
 </html>

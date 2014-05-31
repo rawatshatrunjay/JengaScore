@@ -11,6 +11,12 @@ body{
     background: none repeat scroll 0 0 #3D1545;
     font-family: verdana;
 }
+.font-1x {
+    font-size: 1.2em;
+}
+.font-2x {
+  font-size: 1.5em;
+}
 .font-4x{
     font-size:4em;
 }
@@ -42,4 +48,65 @@ body{
 }
 .title {
   padding-left: 0.5em;
+}
+.sec-division {
+  border: 1px solid;
+  margin: 2em;
+}
+.button {
+  background: none repeat scroll 0 0 #3D1545;
+  border: 2px solid;
+  border-radius: 15px 15px 15px 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  height: 3em;
+  margin: 0 1em;
+  padding: 1em 0.5em 0.3em;
+  text-align: center;
+  width: 15em;
+}
+.button.small {
+  height: 2em;
+  width: 10em;
+}
+.button.positive {
+  background: none repeat scroll 0 0 #2E8B57;
+}
+.button.negative {
+  background: none repeat scroll 0 0 #FF6347;
+}
+.button .icon, .button-text {
+  vertical-align: middle;
+}
+.option-description{
+}
+.add-player-pane {
+  background: none repeat scroll 0 0 #F5DEB3;
+  border-radius: 10px 10px 10px 10px;
+  margin: 1em;
+  padding: 2em;
+  width: 40%;
+  position:relative;
+}
+.add-player-pane:after {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #F5DEB3;
+  border-image: none;
+  border-style: solid;
+  border-width: 1em;
+  content: "";
+  height: 0;
+  left: 7em;
+  position: absolute;
+  top: -2em;
+  width: 0;
+}
+.add-player-input {
+  margin-bottom: 2em;
+  padding: 0.5em;
+  width: 70%;
+}
+.add-player-actions {
+  text-align: right;
 }
