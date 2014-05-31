@@ -26,18 +26,52 @@ and open the template in the editor.
             <div class="sec-division"></div>
             <div class="page-body">
                 <div class="game-options" data-bind="foreach: options">
-                    <div class="button neutral" data-bind="click: action">
+                    <div class="button neutral" data-bind="click: action, visible: isVisible">
                         <span class="icon fa-2x" data-bind="css: icon"></span>
                         <span class="button-text font-2x" data-bind="text: caption"></span>
                     </div>
                 </div>
-                <div class="sub-division"></div>
                 <div class="option-description" data-bind="template: {name: 'addPlayerTmpl'}"></div>
                 <div class="option-description" data-bind="template: {name: 'ruleTmpl'}"></div>
+                <div class="sub-division"></div>
+                <div class="play-area">
+                    <div class="score-card">
+                        <span class="font-3x score-header">Scores:</span>
+                        <div class="score-container" data-bind="foreach: playerList">
+                            <div class="player-info">
+                                <span class="player-name font-2x" data-bind="text: name"></span>
+                                <span class="player-score font-3x" data-bind="text: score"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="turn-play" data-bind="visible: gameBegun">
+                        <span class="next-turn-label font-3x">Next Turn:</span>
+                        <!-- ko with:currentPlayer -->
+                        <span data-bind="text: name" class="current-player font-3x"></span>
+                        <!-- /ko -->
+                        <div class="stick-info">
+                            <span class="font-2x stick-value-label">Stick Value:</span>
+                            <span class="font-3x stick-value" data-bind="text: currentStickValue"></span>
+                            <span class="font-2x special-stick-label">Special stick?</span>
+                            <input type="checkbox" data-bind="checked: specialStick">
+                        </div>
+                        <div class="game-action">
+                            <div class="button positive" data-bind="click: didIt">
+                                <span class="icon fa-2x fa-thumbs-up"></span>
+                                <span class="button-text font-2x">Did It! :)</span>
+                            </div>
+                            <div class="button negative" data-bind="click: didNot">
+                                <span class="icon fa-2x fa-thumbs-down"></span>
+                                <span class="button-text font-2x">Did Not :(</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card"></div>
+                </div>
             </div>
         </div>
         <script type="text/html" id="addPlayerTmpl">
-            <div id="add-player-dialog" class="add-player-pane" style="display: none;">
+            <div id="add-player-dialog" class="pull-down-pane" style="display: none;">
                 <input type="text" placeholder="Whats the Name?" class="font-1x add-player-input"
                        data-bind="value: newPlayerName">
                 <div class="add-player-actions">
@@ -52,7 +86,17 @@ and open the template in the editor.
                 </div>
             </div>
         </script>
-        <script type="text/html" src="templates/jenga/ruleTmpl.html" id="ruleTmpl"></script>
+        <script type="text/html" id="ruleTmpl">
+            <div id="rules-dialog" class="pull-down-pane rule-pane" style="display: none;">
+                <span class="font-1x">Check your email!</span>
+                <div class="add-player-actions">
+                    <div class="button small neutral" data-bind="click: toggleRulesDialog">
+                        <span class="icon fa-1x fa-smile"></span>
+                        <span class="button-text font-1x">Got it!</span>
+                    </div>
+                </div>
+            </div>
+        </script>
         <script src="js/libs/require/require.js" data-main="js/jenga/jenga"></script>
     </body>
 </html>
