@@ -14,12 +14,16 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="loading-div">
-            <div class="icon loading-icon fa-spinner"></div>
-            <span>Just a moment.....</span>
+        <div id="loading-div" class="loading-div">
+            <div class="icon loading-icon fa-spinner fa-4x"></div>
+            <span class="font-4x">Just a moment.....</span>
         </div>
         <div id="content-body" class="main-content">
-            
+            <div class="page-header">
+                <span class="icon fa-4x fa-bars"></span>
+                <span class="title font-4x">Jenga Score Keeper</span>
+            </div>
         </div>
+        <script src="js/libs/require/require.js" data-main="js/jenga/jenga"></script>
     </body>
 </html>
