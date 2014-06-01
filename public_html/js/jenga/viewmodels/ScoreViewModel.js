@@ -12,6 +12,7 @@ define(['knockout','jquery']
             };
             this.gameBegun = ko.observable(false);
             this.gameOver = ko.observable(false);
+            this.gameScore = ko.observable(0);
             this.newPlayerName = ko.observable();
             this.playerList = ko.observableArray();
             this.currentPlayer = ko.observable();
@@ -20,9 +21,9 @@ define(['knockout','jquery']
             this.completedLevel = ko.computed(function(){
                 return parseInt(_self.sticksDisplaced() / 3);
             });
-            this.buildingLevel = ko.computed(function(){
+            /*this.buildingLevel = ko.computed(function(){
                 return this.completedLevel + 1;
-            });
+            });*/
             this.computeStickValue = function(){
                 var buildingLevel = parseInt(_self.sticksDisplaced() / 3) + 1;
                 if(_self.specialStick()){
@@ -56,6 +57,7 @@ define(['knockout','jquery']
             this.resetScores = function(){
                 _self.currentPlayer(_self.playerList()[0]);
                 this.sticksDisplaced(0);
+                this.gameScore(0);
                 this.specialStick(false);
                 
                 for(var player in this.playerList()){
@@ -96,6 +98,7 @@ define(['knockout','jquery']
             
             this.didIt = function(){
                 this.currentPlayer().addScore(this.computeStickValue());
+                this.gameScore(this.gameScore() + this.computeStickValue());
                 this.nextPlayer();
                 this.sticksDisplaced(this.sticksDisplaced() + 1);
                 this.specialStick(false);
@@ -103,8 +106,8 @@ define(['knockout','jquery']
             };
             
             this.highlightPlayerChange = function(){
-                $(".turn-play").toggle('blind',{},400,function(){
-                    $(".turn-play").toggle('blind',{},400);
+                $(".turn-play").toggle('highlight',{},400,function(){
+                    $(".turn-play").toggle('highlight',{},400);
                 });
             };
             
@@ -119,6 +122,42 @@ define(['knockout','jquery']
                 this.currentPlayer().reduceScore(this.computeStickValue());
                 
             };
+            
+            this.upLoad = function(){
+                alert("We still need a back end for this. Siva? How about it?");
+            };
+            
+            this.infoCard = ko.observableArray([
+                {infoDesc: "Total Sticks Displaced", infoValue: ko.computed(function(){
+                        return _self.sticksDisplaced();
+                })},
+                {infoDesc: "Current Level", infoValue: ko.computed(function(){
+                        return parseInt(_self.sticksDisplaced() / 3) + " and "
+                                + _self.sticksDisplaced() % 3 + " sticks ";
+                })},
+                {infoDesc: "Total score of Game", infoValue: ko.computed(function(){
+                        return _self.gameScore();
+                })},
+                {infoDesc: "Leader", infoValue: ko.computed(function(){
+                        var maxScore = 0;
+                        var leader;
+                        var leaderName = "";
+                        
+                        for(var player in _self.playerList()){
+                            if(_self.playerList().hasOwnProperty(player)){
+                                var playerModel = _self.playerList()[player];
+                                if(playerModel.score() > maxScore){
+                                    maxScore = playerModel.score();
+                                    leader = playerModel;
+                                    leaderName = playerModel.name;
+                                }else if(playerModel.score() === maxScore){
+                                    leaderName += (leaderName? " & ": "") + playerModel.name;
+                                }
+                            }
+                        }
+                        return leaderName;
+                })}
+            ]);
         }
 
         function Player(name){

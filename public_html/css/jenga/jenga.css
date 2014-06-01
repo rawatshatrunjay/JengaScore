@@ -143,6 +143,10 @@ body{
 }
 .score-container {
   margin: 1em 2.5em;
+}
+.play-area {
+  display: inline-block;
+  vertical-align: top;
   width: 65%;
 }
 .turn-play {
@@ -150,7 +154,6 @@ body{
   border-radius: 2em 2em 2em 2em;
   margin: 2.5em;
   padding: 2em;
-  width: 50%;
 }
 .stick-info {
   margin: 2em 0;
@@ -165,5 +168,29 @@ body{
   margin-left: 6em;
 }
 .game-action {
+  text-align: right;
+}
+.game-over {
+  padding: 2em;
+  text-align: right;
+}
+.game-over-text {
+  color: #8B4513;
+  font-weight: bold;
+  margin-right: 2em;
+  vertical-align: middle;
+}
+.info-card {
+  display: inline-block;
+  padding: 1em;
+  width: 31%;
+}
+.stat-container {
+  margin: 3em 0;
+}
+.info-value {
+  color: #A0522D;
+  float: right;
+  font-weight: bold;
   text-align: right;
 }

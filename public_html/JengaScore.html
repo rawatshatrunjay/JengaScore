@@ -66,7 +66,22 @@ and open the template in the editor.
                             </div>
                         </div>
                     </div>
-                    <div class="info-card"></div>
+                    <div class="game-over" data-bind="visible: gameOver">
+                        <span class="game-over-text font-3x">Game Over!</span>
+                        <div class="button neutral" data-bind="click: upLoad">
+                            <span class="icon fa-2x fa-upload"></span>
+                            <span class="button-text font-2x">Upload Results</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <span class="info-card-heading font-3x">Statistics:</span>
+                    <!-- ko foreach: infoCard -->
+                    <div class="stat-container">
+                        <span class="info-desc font-2x" data-bind="text: infoDesc"></span>:
+                        <span class="info-value font-3x" data-bind="text: infoValue"></span>
+                    </div>
+                    <!-- /ko -->
                 </div>
             </div>
         </div>
