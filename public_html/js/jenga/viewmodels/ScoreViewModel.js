@@ -120,6 +120,7 @@ define(['knockout','jquery']
             this.didNot = function(){
                 _self.endGame();
                 this.currentPlayer().reduceScore(this.computeStickValue());
+                this.gameScore(this.gameScore() - this.computeStickValue());
                 
             };
             
