@@ -1,6 +1,7 @@
 var APPNAME = 'JengaScore';
 
 require.config({
+    waitSeconds: 180,
     paths:{
         knockout: '/' + APPNAME + '/js/libs/knockout/knockout-min',
         jquery: '/' + APPNAME + '/js/libs/jquery/jquery',
@@ -10,7 +11,7 @@ require.config({
     }
 });
 
-define(['order!knockout','order!jquery','order!jqueryui','order!vms/ScoreViewModel'], function(ko,$,$ui,svm){
+define(['order!knockout','order!vms/ScoreViewModel'], function(ko,svm){
     svm.initiateDisplay();
     ko.applyBindings(svm);
 });

@@ -1,4 +1,4 @@
-define(['knockout','jquery']
+define(['knockout','order!jquery','order!jqueryui']
     , function(ko, $){
     
         function ScoreViewModel(){
