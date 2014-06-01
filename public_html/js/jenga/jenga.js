@@ -6,12 +6,13 @@ require.config({
         knockout: '/' + APPNAME + '/js/libs/knockout/knockout-min',
         jquery: '/' + APPNAME + '/js/libs/jquery/jquery',
         jqueryui: '/' + APPNAME + '/js/libs/jquery/jquery-ui',
-        vms: '/' + APPNAME + '/js/jenga/viewmodels',
-        tmpls: '/' + APPNAME + '/templates/jenga'
+        vms: '/' + APPNAME + '/js/jenga/viewmodels'
     }
 });
 
-define(['order!knockout','order!vms/ScoreViewModel'], function(ko,svm){
-    svm.initiateDisplay();
-    ko.applyBindings(svm);
+define(['knockout','jquery','vms/ScoreViewModel'], function(ko,$,svm){
+    $(document).ready(function(){
+        svm.initiateDisplay();
+        ko.applyBindings(svm);
+    });
 });
