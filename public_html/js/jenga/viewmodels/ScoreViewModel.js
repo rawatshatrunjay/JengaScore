@@ -129,12 +129,12 @@ define(['knockout','jquery']
             };
             
             this.infoCard = ko.observableArray([
-                {infoDesc: "Total Sticks Displaced", infoValue: ko.computed(function(){
+                {infoDesc: "Total Blocks Displaced", infoValue: ko.computed(function(){
                         return _self.sticksDisplaced();
                 })},
                 {infoDesc: "Current Level", infoValue: ko.computed(function(){
                         return parseInt(_self.sticksDisplaced() / 3) + " and "
-                                + _self.sticksDisplaced() % 3 + " sticks ";
+                                + _self.sticksDisplaced() % 3 + " Blocks ";
                 })},
                 {infoDesc: "Total score of Game", infoValue: ko.computed(function(){
                         return _self.gameScore();

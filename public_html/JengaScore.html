@@ -50,9 +50,9 @@ and open the template in the editor.
                         <span data-bind="text: name" class="current-player font-3x"></span>
                         <!-- /ko -->
                         <div class="stick-info">
-                            <span class="font-2x stick-value-label">Stick Value:</span>
+                            <span class="font-2x stick-value-label">Block Value:</span>
                             <span class="font-3x stick-value" data-bind="text: currentStickValue"></span>
-                            <span class="font-2x special-stick-label">Special stick?</span>
+                            <span class="font-2x special-stick-label">Special block?</span>
                             <input type="checkbox" data-bind="checked: specialStick">
                         </div>
                         <div class="game-action">
@@ -103,7 +103,26 @@ and open the template in the editor.
         </script>
         <script type="text/html" id="ruleTmpl">
             <div id="rules-dialog" class="pull-down-pane rule-pane" style="display: none;">
-                <span class="font-1x">Check your email!</span>
+                <div class="font-2x">How to play:</div>
+                <p class="font-1x"> Moving in Jenga consists of taking one and only one block from any 
+                    level (except the one below the incomplete top level) of the tower, and placing it 
+                    on the topmost level to complete it. Only one hand should be used at a time when 
+                    taking blocks from the tower. Blocks may be bumped to find a loose block that will 
+                    not disturb the rest of the tower. Any block that is moved out of place must be 
+                    returned to its original location before removing another block. The turn ends 
+                    when the next person to move touches the tower.</p>
+                <div class="font-2x">How to score:</div>
+                <p class="font-1x">Each block has a value to it depending upon on the level on which it
+                    is going to be placed and if it is the second block from a level that is being
+                    removed. For example if a block is removed and its going to be placed on 23rd level
+                    the value of the block is 23-18 = 5. If the block is the second block in the level
+                    from which it is being removed i.e. there is only one block left in the level from
+                    which it is removed the the block's value is increased by 1 and becomes 6.</p>
+                <p class="font-1x">A player's score is increased by the value of the block s/he displaced if
+                    s/he successfully places it. Otherwise the score is reduced by the value of the block.</p>
+                <div class="font-2x">How to lose:</div>
+                <p class="font-1x">If a single block touches the floor, even if its the one you are tryin
+                    to remove, you lose.</p>
                 <div class="add-player-actions">
                     <div class="button small neutral" data-bind="click: toggleRulesDialog">
                         <span class="icon fa-1x fa-smile"></span>

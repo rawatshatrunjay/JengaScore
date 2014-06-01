@@ -110,6 +110,9 @@ body{
   top: -1.7em;
   width: 0;
 }
+.pull-down-pane.rule-pane{
+  width:70%;
+}
 .pull-down-pane.rule-pane:after{
   left:26em;
 }
