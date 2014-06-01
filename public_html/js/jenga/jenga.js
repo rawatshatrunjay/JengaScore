@@ -10,7 +10,7 @@ require.config({
     }
 });
 
-define(['knockout','jquery','jqueryui','vms/ScoreViewModel'], function(ko,$,$ui,svm){
+define(['order!knockout','order!jquery','order!jqueryui','order!vms/ScoreViewModel'], function(ko,$,$ui,svm){
     svm.initiateDisplay();
     ko.applyBindings(svm);
 });
