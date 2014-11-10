@@ -1,12 +1,10 @@
-var APPNAME = 'JengaScore';
-
 require.config({
     waitSeconds: 180,
     paths:{
-        knockout: '/' + APPNAME + '/js/libs/knockout/knockout-min',
-        jquery: '/' + APPNAME + '/js/libs/jquery/jquery',
-        jqueryui: '/' + APPNAME + '/js/libs/jquery/jquery-ui',
-        vms: '/' + APPNAME + '/js/jenga/viewmodels'
+        knockout: '../libs/knockout/knockout-min',
+        jquery: '../libs/jquery/jquery',
+        jqueryui: '../libs/jquery/jquery-ui',
+        vms: '../jenga/viewmodels'
     }
 });
 
