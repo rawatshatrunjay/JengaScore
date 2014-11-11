@@ -1,1 +1,6 @@
 nbproject/
+/ui/build/
+/webservice/build/
+/core/build/
+/build/
+.gradle/
