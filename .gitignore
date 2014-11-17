@@ -4,3 +4,4 @@ nbproject/
 /core/build/
 /build/
 .gradle/
+/.nb-gradle

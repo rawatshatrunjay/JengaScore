@@ -9,9 +9,13 @@ allprojects {
 	
     configurations {
         //dependency name
+        jerseybundle
+        ejbapi
     }
     dependencies {
         //dependency declaration
+        jerseybundle(group: 'com.sun.jersey', name:'jersey-bundle', version:'1.18', ext: 'jar')
+        ejbapi(group: 'javax.ejb', name: 'ejb-api', version:'3.0', ext:'jar')
     }
 }
 
@@ -30,6 +34,7 @@ dependencies {
     deploy project(path: ':ui', configuration: 'archives')
 	
     //earlib declarations
+    earlib configurations.jerseybundle
 }
 
 ear {

@@ -1,1 +1,10 @@
 apply plugin: 'war'
+
+dependencies {
+    providedCompile configurations.jerseybundle
+    providedCompile project(':core')
+}
+
+war {
+    
+}
