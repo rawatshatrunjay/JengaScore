@@ -1,1 +1,1 @@
-include ':webservice', ':ui', ':core'
+include ':webservice', ':ui', ':core', ':utils:logger'

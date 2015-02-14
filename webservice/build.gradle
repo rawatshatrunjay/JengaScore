@@ -2,7 +2,9 @@ apply plugin: 'war'
 
 dependencies {
     providedCompile configurations.jerseybundle
-    providedCompile project(':core')
+    providedCompile configurations.asm
+    providedCompile project(path: ':core')
+    providedCompile project(path: ':utils:logger')
 }
 
 war {

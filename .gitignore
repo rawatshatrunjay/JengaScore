@@ -5,3 +5,4 @@ nbproject/
 /build/
 .gradle/
 /.nb-gradle
+/utils/logger/build/

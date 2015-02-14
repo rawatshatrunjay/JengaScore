@@ -1,4 +1,4 @@
-package shatrunjay.common.jenga.model.player;
+package shatrunjay.common.jenga.model;
 
 /**
  * Player models a player that will play Jenga. It maintains an overall score.
@@ -17,6 +17,10 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -44,5 +48,11 @@ public class Player {
         }
         final Player other = (Player) obj;
         return this.id == other.id;
+    }
+    
+    @Override
+    public String toString() {
+        return String.format("[name: %s, id: %d, totalScore: %d]", 
+                this.name, this.id, this.totalScore);
     }
 }
