@@ -1,8 +1,1 @@
-nbproject/
-/ui/build/
-/webservice/build/
-/core/build/
-/build/
-.gradle/
-/.nb-gradle
-/utils/logger/build/
+node_modules
