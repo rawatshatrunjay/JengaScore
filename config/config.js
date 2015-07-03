@@ -3,5 +3,9 @@ module.exports = {
     infoFile: 'D:\\dev-logs\\jenga\\info.log',
     errorFile: 'D:\\dev-logs\\jenga\\error.log',
     exceptionFile: 'D:\\dev-logs\\jenga\\exception.log'
+  },
+  restserver: {
+    root: '/jenga',
+    port: 3434
   }
 };
